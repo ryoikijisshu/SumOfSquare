@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
 
         val sampleA = arrayOf(3,4,4,5,5,5,5,6,6,7)
         val sampleB = arrayOf(1,2,4,4,5,5,5,6,8,10)
-        var sumofsquareA : Double
-        var sumofsquareB : Double
+        val sumofsquareA : Double
+        val sumofsquareB : Double
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,16 +31,16 @@ class MainActivity : AppCompatActivity() {
         var sum  = 0.0
         val average : Double
 
-        for(i in 0..9){
+        for(i in sample){
 
-            sum += sample[i]
+            sum += i
         }
 
         average = sum/10
 
-        for(i in 0..9){
+        for(i in sample){
 
-           result += pow(sample[i] - average, 2.0)
+           result += pow(i - average, 2.0)
 
         }
 
