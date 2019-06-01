@@ -7,44 +7,44 @@ import java.lang.Math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    val sampleA = arrayOf(3,4,4,5,5,5,5,6,6,7)
-    val sampleB = arrayListOf(1,2,4,4,5,5,5,6,8,10)
-    var sumA = 0
-    var sumB = 0
-    var i=0
-    var averageA : Double = 0.0
-    var averageB : Double = 0.0
-    var sumofsquareA : Double = 0.0
-    var sumofsquareB : Double = 0.0
-
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val sampleA = arrayOf(3,4,4,5,5,5,5,6,6,7)
+        val sampleB = arrayOf(1,2,4,4,5,5,5,6,8,10)
+        var sumofsquareA : Double
+        var sumofsquareB : Double
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        sumofsquareA = sumofsquare(sampleA)
+        sumofsquareB = sumofsquare(sampleB)
+
+        sumofsquareA_result.text = "標本Aの平方和:"+sumofsquareA
+        sumofsquareB_result.text = "標本Bの平方和:"+sumofsquareB
+
+    }
+
+    fun sumofsquare(sample:Array<Int>):Double{
+
+        var result = 0.0
+        var sum  = 0.0
+        val average : Double
 
         for(i in 0..9){
 
-            sumA += sampleA[i]
-            sumB += sampleB[i]
-
+            sum += sample[i]
         }
 
-        averageA = (sumA/10).toDouble()
-        averageB = (sumB/10).toDouble()
+        average = sum/10
 
         for(i in 0..9){
 
-            sumofsquareA += pow(sampleA[i] - averageA, 2.0)
-            sumofsquareB += pow(sampleB[i] - averageB, 2.0)
+           result += pow(sample[i] - average, 2.0)
 
         }
 
-        sumofsquareA_result.text = "標本Aの平方和"+sumofsquareA.toString()
-        sumofsquareB_result.text = "標本Bの平方和"+sumofsquareB.toString()
-
-
-        println("Aの平方和："+ sumofsquareA)
-        println("Bの平方和："+ sumofsquareB)
+        return result
 
     }
 }
