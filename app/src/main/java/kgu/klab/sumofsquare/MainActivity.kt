@@ -11,14 +11,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val data: IntArray = intArrayOf(3,4,4,5,5,5,5,6,6,7)
-        determineSS(data)
+        sosText.text="平方和は"+determineSS(data).toString()
     }
 
-    fun determineSS(listNum: IntArray){
+    fun determineSS(listNum: IntArray):Double{
 
         var deviation :Double =0.0
         var sum : Int =0
-        var mean : Double
+        var mean : Double =0.0
         var sumOfSquares : Double =0.0
         for(item in listNum){
             sum +=item
@@ -30,10 +30,8 @@ class MainActivity : AppCompatActivity() {
             sumOfSquares += deviation * deviation
         }
 
-        System.out.println("平方和"+sumOfSquares)
-
-        sosText.text="平方和は"+sumOfSquares.toString()
-
+        //System.out.println("平方和"+sumOfSquares)
+        return sumOfSquares
     }
 
 }
