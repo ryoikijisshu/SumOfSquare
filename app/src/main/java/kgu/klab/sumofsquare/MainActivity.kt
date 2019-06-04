@@ -2,37 +2,31 @@ package kgu.klab.sumofsquare
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val DataArray= arrayOf(3,4,4,5,5,5,5,6,6,7)
-    val DataArrayB= arrayOf(1,2,4,4,5,5,5,6,8,10)
+    val dataarray= arrayOf(3,4,4,5,5,5,5,6,6,7)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var DateSum1:Int=0
-        var DateSum2:Double=0.0
-        var SumOfSquare=0.0
-        var DateSize:Int=0
-        var DateSum1B:Int=0
-        var DateSum2B:Double=0.0
-        var SumOfSquareB=0.0
-        var DateSizeB:Int=0
-        for (i in DataArray.indices){
-            DateSum1 += (DataArray[i])*(DataArray[i])//平方
-            DateSum2+=DataArray[i]//和
-            DateSize++
-        }
-        SumOfSquare=DateSum1-((DateSum2*DateSum2)/DateSize)
-        println("Aの平方和:"+SumOfSquare)
-        for (i in DataArrayB.indices){
-            DateSum1B += (DataArrayB[i])*(DataArrayB[i])//平方
-            DateSum2B+=DataArrayB[i]//和
-            DateSizeB++
-        }
-        SumOfSquareB=DateSum1B-((DateSum2B*DateSum2B)/DateSizeB)
-        println("Bの平方和:"+SumOfSquareB)
 
+        result.text=SumOfSquare(dataarray).toString()
+
+    }
+    fun SumOfSquare(args: Array<Int>):Double{
+        var datesum1:Int=0
+        var datesum2:Double=0.0
+        var datesize:Int=0
+        var resultnum:Double=0.0
+        for (i in dataarray){
+            datesum1 += i*i//
+            datesum2 += i//
+            datesize++
+        }
+
+        resultnum+=datesum1-((datesum2*datesum2)/datesize)
+        return resultnum
 
     }
 }
