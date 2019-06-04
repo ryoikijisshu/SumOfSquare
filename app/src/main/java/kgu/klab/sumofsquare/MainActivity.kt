@@ -12,37 +12,29 @@ class MainActivity : AppCompatActivity() {
 
         val a = arrayOf(3,4,4,5,5,5,5,6,6,7)
         val b = arrayOf(1,2,4,4,5,5,5,6,8,10)
+        val ss_a : Double = sumOfsquare( a )
+        val ss_b : Double = sumOfsquare( b )
 
-        var sum_a : Double = 0.0
-        var sum_aa : Double = 0.0
-        var sum_b : Double = 0.0
-        var sum_bb : Double = 0.0
+        textView1.text = ("Aの平方和は" + ss_a.toString())
+        textView2.text = ("Bの平方和は" + ss_b.toString())
+    }
 
+    fun sumOfsquare( number : Array<Int>) : Double
+    {
+        var sum  = 0.0
+        var sum2 = 0.0
+        var ave  = 0.0
+        var ss   = 0.0
 
-        for(i in 0..9)
+        for(i in 0 .. number.size - 1)
         {
-            sum_a += a[i]
-            sum_aa += a[i] * a[i]
-            sum_b += b[i]
-            sum_bb += b[i] * b[i]
+            sum  += number[i]
+            sum2 += (number[i] * number[i])
         }
 
-        var ave_a : Double = 0.0
-        var ave_b : Double = 0.0
-        var ss_a : Double = 0.0
-        var ss_b : Double = 0.0
+        ave = (sum * sum) / number.size
+        ss = sum2 - ave
 
-        ave_a = (sum_a * sum_a) / 10
-        ave_b = (sum_b * sum_b) / 10
-
-        ss_a = sum_aa - ave_a
-        ss_b = sum_bb - ave_b
-
-        textView4.text = ("Aの平方和は" + ss_a.toString())
-        textView6.text = ("Bの平方和は" + ss_b.toString())
-
-
-
-
+        return ss
     }
 }
