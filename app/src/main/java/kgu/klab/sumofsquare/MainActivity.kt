@@ -12,26 +12,24 @@ class MainActivity : AppCompatActivity() {
 
         val a = intArrayOf(3, 4, 4, 5, 5, 5, 5, 6, 6, 7)
         val b = intArrayOf(1, 2, 4, 4, 5, 5, 5, 6, 8, 10)
-        var sumA1:Int = 0
-        var sumA2:Int = 0
-        var sumB1:Int = 0
-        var sumB2:Int = 0
 
-        for(i in 0 .. 9){
-            sumA1 += a[i]
-            sumA2 += a[i]*a[i]
-            sumB1 += b[i]
-            sumB2 += b[i]*b[i]
+        fun SumOfSquare(n : IntArray) :Int {
+
+            var sum:Int = 0
+            var sum2:Int = 0
+            var arraysize:Int = 0
+
+            for(i in n.indices){
+                sum += n[i]
+                sum2 += n[i]*n[i]
+                arraysize += 1
+            }
+
+            return sum2 - sum*sum/arraysize
         }
 
-        val ssA = sumA2 - sumA1*sumA1/10
-        val ssB = sumB2 - sumB1*sumB1/10
-
-        resultA.text = ssA.toString()
-        resultB.text = ssB.toString()
-
-
-
+        resultA.text = SumOfSquare(a).toString()
+        resultB.text = SumOfSquare(b).toString()
 
     }
 }
